@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <button class="js-modal-open" data-name="modal01">Open Modal</button>
+  <button class="js-modal-open" data-name="modal02">Open Modal</button>
+  <button class="js-modal-open" data-name="modal03">Open Modal</button>
+
+  <div class="modal js-modal">
+    <div class="modal__overlay js-modal-overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close js-modal-close">Close Modal</button>
+      <div class="swiper modal__slider">
+        <div class="swiper-wrapper js-modal-sliders">
+          <div class="swiper-slide"><img src="https://placehold.jp/480x340.png"></div>
+          <div class="swiper-slide"><img src="https://placehold.jp/980x640.png"></div>
+          <div class="swiper-slide"><img src="https://placehold.jp/980x640.png"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="main.js"></script>
+</body>
+</html>
