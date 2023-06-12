@@ -29,18 +29,6 @@ const modalSwiper = (triggers) => {
   
   // Swiper初期化の関数
   const initializeSwiper = (images) => {
-    // Swiperを初期化
-    const swiper = new Swiper('.js-modal-swiper', {
-      loop: true,  
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
-    });
-  
     // スライドアイテムをリセット
     const swiperSlides = document.querySelector('.js-modal-sliders');
     swiperSlides.innerHTML = '';
@@ -52,9 +40,20 @@ const modalSwiper = (triggers) => {
       slide.innerHTML = `<img src="${image}">`;
       swiperSlides.appendChild(slide);
     });
-  
-    // Swiperを更新
-    swiper.update();
+
+    // Swiperを初期化
+    if(swiper !== '') swiper.destroy();
+    swiper = new Swiper('.js-modal-swiper', {
+      slidesPerView: 1,
+      loop: true,  
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
   };
   
   // モーダルを開く関数
@@ -67,7 +66,7 @@ const modalSwiper = (triggers) => {
     const modal = document.querySelector('.js-modal');
     modal.classList.add('is-active');
   
-    // モダールを閉じる関数
+    // モ-ダルを閉じる関数
     const closeModal = () => {
       modal.classList.remove('is-active');
       const swiperSliders = document.querySelector('.js-modal-sliders');
@@ -80,7 +79,9 @@ const modalSwiper = (triggers) => {
     modalOverlay.addEventListener('click', closeModal);
     modalClose.addEventListener('click', closeModal);
   };
-  
+
+  let swiper = '';
+
   // ボタンクリック時にモーダルを開く
   triggers.forEach((trigger) => {
     trigger.addEventListener('click', () => {
