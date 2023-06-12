@@ -1,36 +1,36 @@
 const modalSwiper = (triggers) => {
-  // モーダルのプロパティ
+  // コンテンツプロパティ
   const modalProps = [
     {
       name : 'modal01',
       images: [
-        'https://placehold.jp/480x340.png',
-        'https://placehold.jp/480x340.png'
+        'https://placehold.jp/480x340.png?text=modal01',
+        'https://placehold.jp/480x340.png?text=modal01'
       ]
     },
     {
       name : 'modal02',
       images: [
-        'https://placehold.jp/480x340.png',
-        'https://placehold.jp/480x340.png',
-        'https://placehold.jp/480x340.png'
+        'https://placehold.jp/480x340.png?text=modal02',
+        'https://placehold.jp/480x340.png?text=modal02',
+        'https://placehold.jp/480x340.png?text=modal02'
       ]
     },
     {
       name : 'modal03',
       images: [
-        'https://placehold.jp/480x340.png',
-        'https://placehold.jp/480x340.png',
-        'https://placehold.jp/480x340.png',
-        'https://placehold.jp/480x340.png'
+        'https://placehold.jp/480x340.png?text=modal03',
+        'https://placehold.jp/480x340.png?text=modal03',
+        'https://placehold.jp/480x340.png?text=modal03',
+        'https://placehold.jp/480x340.png?text=modal03'
       ]
     }
   ];
   
   // Swiper初期化の関数
-  const initSwiper = (images) => {
+  const initializeSwiper = (images) => {
     // Swiperを初期化
-    const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.js-modal-swiper', {
       loop: true,  
       pagination: {
         el: '.swiper-pagination',
@@ -61,7 +61,7 @@ const modalSwiper = (triggers) => {
   const openModal = (name) => {
     // Swiperを初期化
     const modalProp = modalProps.find((item) => item.name === name);
-    if(modalProp) initSwiper(modalProp.images);
+    if(modalProp) initializeSwiper(modalProp.images);
   
     // モーダルを表示
     const modal = document.querySelector('.js-modal');
